@@ -2,6 +2,7 @@ package com.ipsoft.cryptocurrencyapp.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.ipsoft.cryptocurrencyapp.domain.model.Coin
 
 data class CoinDto(
     @SerializedName("id")
@@ -19,4 +20,13 @@ data class CoinDto(
     @SerializedName("type")
     val type: String
 )
+
+fun CoinDto.toCoin(): Coin =
+    Coin(
+        id = id,
+        isActive = isActive,
+        name = name,
+        rank = rank,
+        symbol = symbol
+    )
 
